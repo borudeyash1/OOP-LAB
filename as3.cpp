@@ -3,11 +3,12 @@
 //name,dob,blood group,height,weight,insurance no.,contact no.,telephone no.,driving licence no.
 //construct the database with suitabble member functions
 //for initializing and destroying the data using constructor,default constructor,parameterized constructor,copy constructor
-//,destructor,static data member and member fuction,friend function,inline finction and dynamic memory allocation operation new and delete
+//destructor,static data member and member fuction,friend function,inline finction and dynamic memory allocation operation new and delete 
 
 #include <iostream>
 #include <cstring>
 using namespace std;
+int n;
 
 class PersonalInfo
 {
@@ -15,6 +16,7 @@ private:
     char name[100], dob[15],bg[5],insNo[20],contactNo[15],tn[15],dlNo[20];      
     float height,weight;
     static int count;
+    
 
 public:
 
@@ -72,10 +74,8 @@ public:
     {
         return count;
     }
-
-    // Friend function
-    friend void display(const PersonalInfo &p);
-
+	
+    friend void display(PersonalInfo[],int);
     void setHeightWeight(float h, float w)
     {
         height = h;
@@ -114,29 +114,22 @@ public:
         cout << "Enter driving license number: ";
         cin >> dlNo;
     }
-};
+}y[10];
 
 // Initialize static member
 int PersonalInfo::count = 0;
+        cout << "------------------------------------------Category Information---------------------------------------------------\n";
+void display(PersonalInfo p[],int i){
 
-// Friend function 
-void display(const PersonalInfo &p) {
-    cout << "Category\tInformation\n";
-    cout << "Name\t" << p.name << "\n";
-    cout << "DOB\t" << p.dob << "\n";
-    cout << "Blood Group\t" << p.bg << "\n";
-    cout << "Height\t" << p.height << "\n";
-    cout << "Weight\t" << p.weight << "\n";
-    cout << "Insurance No.\t" << p.insNo << "\n";
-    cout << "Contact No.\t" << p.contactNo << "\n";
-    cout << "Telephone No.\t" << p.tn << "\n";
-    cout << "Driving License No.\t" << p.dlNo << "\n";
-}
-
+    cout<<"\n";
+    for(i=0;i<n;i++)
+    cout<<p[i].name<<"\t"<<p[i].dob<<"\t"<<p[i].bg<<"\t"<<p[i].height<<"\t"<<p[i].weight<<"\t"<<p[i].insNo<<"\t"<<p[i].contactNo<<"\t"<<p[i].tn<<"\t"<<p[i].dlNo<<"\t"<<endl;}
 int main()
 {
     PersonalInfo person;
-    int choice;
+    int choice,i;
+    cout<<"Enter the number of records";
+    cin>>n;
 
     while (choice != 4)
     {
@@ -150,10 +143,17 @@ int main()
         switch (choice)
         {
         case 1:
-            person.input();
+        for(i=0;i<n;i++)
+        	{
+        	y[i].input();
+        	}
+            
             break;
         case 2:
-            display(person);
+        	cout << "Name\t"<<"DOB\t"<<"Blood Group\t"<<"Height\t"<<"Weight\t"<<"Insurance No\t"<<"Contact No\t"<<"Telephone No\t"<<"Driving LicenseNo\t"<<endl;
+           display(y,i);
+    		
+            
             break;
         case 3:
             cout << "Exiting the program.\n";
@@ -166,4 +166,4 @@ int main()
     cout << "Total number of persons: " << PersonalInfo::getCount() << endl;
 
     return 0;
-}
+}   
