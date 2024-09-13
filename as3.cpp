@@ -1,3 +1,10 @@
+//developing an oop in in c++ to create  a database of personal information system 
+//containing the following information
+//name,dob,blood group,height,weight,insurance no.,contact no.,telephone no.,driving licence no.
+//construct the database with suitabble member functions
+//for initializing and destroying the data using constructor,default constructor,parameterized constructor,copy constructor
+//,destructor,static data member and member fuction,friend function,inline finction and dynamic memory allocation operation new and delete
+
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -185,24 +192,24 @@ int main() {
         switch (choice) {
             case 1:
                 for (i = 0; i < n; i++) {
-                    person[i].input(); // Take input for each person
+                    person[i].input();
                 }
                 break;
 
             case 2:
-                display(person, n); // Display all persons' information
+                display(person, n);
                 break;
 
             case 3:
                 cout << "Enter Insurance Number to update: ";
                 cin >> insNo;
-                updateProfile(person, n, insNo); // Update profile
+                updateProfile(person, n, insNo); 
                 break;
 
             case 4:
                 cout << "Enter Insurance Number to delete: ";
                 cin >> insNo;
-                deleteProfile(person, n, insNo); // Delete profile
+                deleteProfile(person, n, insNo); 
                 break;
 
             case 5:
