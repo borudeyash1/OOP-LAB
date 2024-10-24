@@ -47,7 +47,16 @@ public:
     }
     void withdraw()
     {
+        if (!isAccountActive)
+        {
+            cout << "Account is inactive. Cannot withdraw." << endl;
+            return;
+        }
+        double amount;
+        //password system
+        string pass;
         
+
     }
 
     void display()

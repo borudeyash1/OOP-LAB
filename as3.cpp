@@ -39,7 +39,7 @@ public:
         height = h;
         weight = w;
         strcpy(insNo, i);
-        strcpy(contactNo, c);
+            strcpy(contactNo, c);
         strcpy(tn, t);
         strcpy(dlNo, dl);
         count++;
@@ -86,6 +86,7 @@ public:
 
     // Function to take input from user
     void input() {
+        
         cout << "Enter name: ";
         cin >> name;
 
