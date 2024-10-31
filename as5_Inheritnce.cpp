@@ -2,123 +2,116 @@
 #include <vector>
 using namespace std;
 
-class Student
-{
+class Student {
 public:
     int roll;
     string prn, name;
-    void get()
-    {
-        cout << "Enter the roll no., name and prn of student: ";
+
+    void get() {
+        cout << "Enter the roll no., name and PRN of the student: ";
         cin >> roll >> name >> prn;
     }
-    void display();
+
+    void display() const {
+        cout << "Name of Student: " << name << endl;
+        cout << "Roll No. of Student: " << roll << endl;
+        cout << "PRN of Student: " << prn << endl;
+    }
 };
 
-void Student::display()
-{
-    cout << "Name of student : " << name << endl;
-    cout << "Roll no. of student : " << roll << endl;
-    cout << "PRN of student : " << prn << endl;
-}
-
-class Test : virtual public Student
-{
-    int n;
+class Test : virtual public Student {
+protected:
+    int n; // Number of subjects
     vector<string> subname;
     vector<int> cia, endsem;
 
 public:
-    void getm()
-    {
-        cout << "Emter the no. of subjects: " << endl;
+    void getm() {
+        cout << "Enter the number of subjects: ";
         cin >> n;
-        for (int i = 0; i < n; i++)
-        {
+
+        subname.resize(n);
+        cia.resize(n);
+        endsem.resize(n);
+
+        for (int i = 0; i < n; i++) {
             cout << "Enter the subject name: ";
             cin >> subname[i];
-            cout << "Enter the CIA marks and END SEM marks of " << subname[i];
+            cout << "Enter the CIA and END SEM marks for " << subname[i] << ": ";
             cin >> cia[i] >> endsem[i];
         }
     }
-    void displayT();
+
+    void displayT() const {
+        cout << "\nSubject-wise Marks:\n";
+        for (int i = 0; i < n; i++) {
+            cout << subname[i] << "\tCIA: " << cia[i] << "\tEnd Sem: " << endsem[i] << endl;
+        }
+    }
 };
 
-void Test::displayT()
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << "\n"
-             << cia[i] << "\t" << endsem[i] << "\t" << endl;
-    }
-}
-
-class Sports : virtual public Student
-{
+class Sports : virtual public Student {
     string spname, spgrade;
 
 public:
-    void getsp()
-    {
+    void getsp() {
         cout << "Enter Sport name: ";
         cin >> spname;
-        cout << "Enter aport grade: ";
+        cout << "Enter Sport grade: ";
         cin >> spgrade;
     }
-    void displayG();
+
+    void displayG() const {
+        cout << "\nSport: " << spname << "\tGrade: " << spgrade << endl;
+    }
 };
 
-void Sports::displayG()
-{
-    cout << "\n"
-         << spname << "\t" << spgrade << endl;
-}
-
-class Result : public Test, public Sports
-{
+class Result : public Test, public Sports {
 public:
-    void displayAll();
+    void displayAll() const {
+        display();
+        displayG();
+        displayT();
+    }
 };
 
-void Result::displayAll()
-{
-    display();
-    displayG();
-    displayT();
-}
+int main() {
+    int ch;
+    int studentCount;
 
-int main()
-{
-    Result R;
-    ;
-    int ch, n;
-    while (true)
-    {
-        cout << "1. Accept\n2. Display\n3. Exit\n";
-        cout <<"Enter your choice: ";
+    cout << "Enter the number of students: ";
+    cin >> studentCount;
+
+    vector<Result> students(studentCount);
+
+    while (true) {
+        cout << "\nMenu:\n1. Accept\n2. Display\n3. Exit\n";
+        cout << "Enter your choice: ";
         cin >> ch;
-        switch (ch)
-        {
+
+        switch (ch) {
             case 1:
-                for (int i = 0; i < n; i++)
-                {
-                    R.get();
-                    R.getm();
-                    R.getsp();
+                for (int i = 0; i < studentCount; i++) {
+                    cout << "\nStudent " << i + 1 << " Details:\n";
+                    students[i].get();
+                    students[i].getm();
+                    students[i].getsp();
                 }
                 break;
+
             case 2:
-                for (int i = 0; i < n; i++)
-                {
-                    R.displayAll();
+                for (int i = 0; i < studentCount; i++) {
+                    cout << "\nDisplaying Details of Student " << i + 1 << ":\n";
+                    students[i].displayAll();
                 }
                 break;
+
             case 3:
-                cout << "Exiting.....!!\n";
-                break;
+                cout << "Exiting...!!\n";
+                return 0;
+
             default:
-                cout << "Enter valid input (1/2/3)";
+                cout << "Enter valid input (1/2/3)\n";
         }
     }
-    return 0;
 }
