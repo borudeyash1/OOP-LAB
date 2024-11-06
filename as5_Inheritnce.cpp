@@ -1,6 +1,7 @@
 #include <iostream>
-#include <vector>
 using namespace std;
+
+const int MAX_SUBJECTS = 10; // Define a maximum number of subjects
 
 class Student {
 public:
@@ -8,7 +9,7 @@ public:
     string prn, name;
 
     void get() {
-        cout << "Enter the roll no., name and PRN of the student: ";
+        cout << "Enter the roll no., name, and PRN of the student: ";
         cin >> roll >> name >> prn;
     }
 
@@ -22,17 +23,17 @@ public:
 class Test : virtual public Student {
 protected:
     int n; // Number of subjects
-    vector<string> subname;
-    vector<int> cia, endsem;
+    string subname[MAX_SUBJECTS];
+    int cia[MAX_SUBJECTS], endsem[MAX_SUBJECTS];
 
 public:
     void getm() {
-        cout << "Enter the number of subjects: ";
+        cout << "Enter the number of subjects (up to " << MAX_SUBJECTS << "): ";
         cin >> n;
-
-        subname.resize(n);
-        cia.resize(n);
-        endsem.resize(n);
+        if (n > MAX_SUBJECTS) {
+            cout << "Exceeding maximum number of subjects. Setting to " << MAX_SUBJECTS << ".\n";
+            n = MAX_SUBJECTS;
+        }
 
         for (int i = 0; i < n; i++) {
             cout << "Enter the subject name: ";
@@ -82,7 +83,7 @@ int main() {
     cout << "Enter the number of students: ";
     cin >> studentCount;
 
-    vector<Result> students(studentCount);
+    Result students[studentCount]; // Use array instead of vector
 
     while (true) {
         cout << "\nMenu:\n1. Accept\n2. Display\n3. Exit\n";
