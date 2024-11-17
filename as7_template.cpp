@@ -1,4 +1,4 @@
-//to create a function template for selction sort that can sort array of different type(integer,float ,character).It should take inputs,sorts and outputs integer array nad a float array.
+//to create a function template for selction sort that can sort array of different type(integer,float ,character).It should take inputs,sorts and outputs integer array had a float array.
 #include<iostream>
 #define MAX 50
 using namespace std;
@@ -39,7 +39,7 @@ int main(){
     
 
     while(true){
-        cout<<"---Template selection sort-----\n";
+        cout<<"---Template class impletmetated selection sort-----\n";
         cout<<"1.Selection sorting of  integer array\n";
         cout<<"2.Selection sorting of float array\n";
         cout<<"3.Selection sorting of character array\n";

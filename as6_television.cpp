@@ -15,7 +15,7 @@ istream &operator>>(istream &vin, television &t) {
     vin >> t.mn;
 
     cout << "Available Sizes (in inches):\n";
-    cout << "12, 14, 15, 17, 19, 22, 24, 28, 32, 40, 43, 48, 50, 55, 60, 65, 70\n";
+    cout << "12 inches to  70 inches\n";
     cout << "Choose a size from the above options: ";
     vin >> t.sz;
 
@@ -23,9 +23,7 @@ istream &operator>>(istream &vin, television &t) {
     vin >> t.pz;
 
     try {
-        if (t.mn > 9999 || (t.sz != 12 && t.sz != 14 && t.sz != 15 && t.sz != 17 && t.sz != 19 && t.sz != 22 &&
-            t.sz != 24 && t.sz != 28 && t.sz != 32 && t.sz != 40 && t.sz != 43 && t.sz != 48 && t.sz != 50 &&
-            t.sz != 55 && t.sz != 60 && t.sz != 65 && t.sz != 70) || t.pz < 0 || t.pz > 100000) {
+        if (t.mn > 9999 || (t.sz >= 12 ||  t.sz <= 70) || t.pz < 0 || t.pz > 100000) {
             throw 1;
         }
     } catch (int e) {
