@@ -26,7 +26,7 @@ public:
     void display() const
     {
         if (imaginary >= 0)
-            cout << real << " + " << imaginary << "i" << endl;
+          cout << real << " + " << imaginary << "i" << endl;
         else
             cout << real << " - " << -imaginary << "i" << endl;
     }
@@ -35,7 +35,7 @@ public:
     Complex operator+(const Complex &s);
     friend Complex operator-(const Complex &s, const Complex &ss);
     Complex operator*(const Complex &s);
-    Complex operator/(const Complex &s);
+    Complex operator/(const Complex &s); 
 };
 
 // Addition
