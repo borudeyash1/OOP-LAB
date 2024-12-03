@@ -1,96 +1,88 @@
-/*
-Problem Defination ; design a C++ class complex with data member for real and imaginary part provide default and parameterized constructor  write a program to perform  arithmetic operation of two complex number using operator overloading (using either member function or friend function).
-
-Date: 11/09/2024
-Name: Borude Yash Ambadas 
-Batch: AS1
-*/
-
+/*Design a C++ Class ‘Complex ‘ with data members for real
+and imaginary part. Provide default and parameterized
+constructors. Write a program to perform arithmetic
+operations of two complex numbers using operator
+overloading (using either member functions or friend
+functions)..*/
 #include <iostream>
 using namespace std;
 
-class Complex
-{
-private:
-    double real, imaginary;
+class Complex {
+    int real, imaginary;
 
 public:
-    // Parameterized Constructor
-    Complex(double r = 0, double img = 0)
-    {
+    Complex(int r = 0, int i = 0) {
         real = r;
-        imaginary = img;
+        imaginary = i;
     }
-
     // Display function
-    void display() const
-    {
+    void display() {
         if (imaginary >= 0)
           cout << real << " + " << imaginary << "i" << endl;
         else
             cout << real << " - " << -imaginary << "i" << endl;
     }
 
+<<<<<<< HEAD
     // Operator Overloading
     Complex operator+(const Complex &s);
     friend Complex operator-(const Complex &s, const Complex &ss);
     Complex operator*(const Complex &s);
     Complex operator/(const Complex &s); 
+=======
+    // Operator overloading
+    Complex operator+(Complex &b);
+    friend Complex operator-(Complex &a, Complex &b);
+    Complex operator*(Complex &b);
+    Complex operator/(Complex &b);
+>>>>>>> c543d366ce839e77c2965efd58d12f770a17ac77
 };
 
 // Addition
-Complex Complex::operator+(const Complex &c2)
-{
-    return Complex(real + c2.real, imaginary + c2.imaginary);
+Complex Complex::operator+(Complex &b) {
+    return Complex(real + b.real, imaginary + b.imaginary);
 }
 
 // Subtraction
-Complex operator-(const Complex &c1, const Complex &c2)
-{
-    return Complex(c1.real - c2.real, c1.imaginary - c2.imaginary);
+Complex operator-(Complex &a, Complex &b) {
+    return Complex(a.real - b.real, a.imaginary - b.imaginary);
 }
 
 // Multiplication
-Complex Complex::operator*(const Complex &c2)
-{
-    double real_part = (real * c2.real) - (imaginary * c2.imaginary);
-    double imaginary_part = (real * c2.imaginary) + (imaginary * c2.real);
+Complex Complex::operator*(Complex &b) {
+    int real_part = (real * b.real) - (imaginary * b.imaginary);
+    int imaginary_part = (real * b.imaginary) + (imaginary * b.real);
     return Complex(real_part, imaginary_part);
 }
 
 // Division
-Complex Complex::operator/(const Complex &c2)
-{
-    double denominator = c2.real * c2.real + c2.imaginary * c2.imaginary;
-    if (denominator == 0)
-    {
+Complex Complex::operator/(Complex &b) {
+    int denominator = b.real * b.real + b.imaginary * b.imaginary;
+    if (denominator == 0) {
         throw runtime_error("Division by zero!");
     }
-    double real_part = (real * c2.real + imaginary * c2.imaginary) / denominator;
-    double imaginary_part = (imaginary * c2.real - real * c2.imaginary) / denominator;
+    int real_part = (real * b.real + imaginary * b.imaginary) / denominator;
+    int imaginary_part = (imaginary * b.real - real * b.imaginary) / denominator;
     return Complex(real_part, imaginary_part);
 }
 
-int main()
-{
-    Complex c1, c2, result;
-    double r1, i1, r2, i2;
+int main() {
+    Complex a, b, result;
+    int r1, i1, r2, i2;
     int choice = 0;
 
-    // Input two complex numbers
-    cout << "Enter the real and imaginary part of the first complex number: ";
+    // Input of the numbers
+    cout << "Enter the real and imaginary part of the first complex number (a): ";
     cin >> r1 >> i1;
-    c1 = Complex(r1, i1);
+    a = Complex(r1, i1);
 
-    cout << "Enter the real and imaginary part of the second complex number: ";
+    cout << "Enter the real and imaginary part of the second complex number (b): ";
     cin >> r2 >> i2;
-    c2 = Complex(r2, i2);
+    b = Complex(r2, i2);
 
-    // While Loop
-    while (choice != 5)
-    {
-        // Switch case for operation selection
-        cout << "Choose the operation to perform on complex numbers:\n";
+    do {
+        // Switch case
+        cout << "\nChoose the operation to perform on complex numbers:\n";
         cout << "1. Addition\n";
         cout << "2. Subtraction\n";
         cout << "3. Multiplication\n";
@@ -98,43 +90,43 @@ int main()
         cout << "5. Exit\n";
         cin >> choice;
 
-        switch (choice)
-        {
+        switch (choice) {
         case 1:
-            result = c1 + c2;
-            cout << "Result of Addition: ";
+            result = a + b;
+            cout << "Result of addition: ";
             result.display();
             break;
+
         case 2:
-            result = c1 - c2;
-            cout << "Result of Subtraction: ";
+            result = a - b;
+            cout << "Result of subtraction: ";
             result.display();
             break;
+
         case 3:
-            result = c1 * c2;
-            cout << "Result of Multiplication: ";
+            result = a * b;
+            cout << "Result of multiplication: ";
             result.display();
             break;
+
         case 4:
-            try
-            {
-                result = c1 / c2;
-                cout << "Result of Division: ";
+            try {
+                result = a / b;
+                cout << "Result of division: ";
                 result.display();
-            }
-            catch (runtime_error &e)
-            {
+            } catch (runtime_error &e) {
                 cout << e.what() << endl;
             }
             break;
+
         case 5:
-            cout << "Exiting...." << endl;
+            cout << "Exiting..." << endl;
             break;
+
         default:
-            cout << "Invalid choice!" << endl;
-            break;
+            cout << "Invalid input! Please try again." << endl;
         }
-    }
+    } while (choice != 5);
 
     return 0;
 }
