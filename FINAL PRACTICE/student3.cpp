@@ -5,99 +5,110 @@ Marks and End sem Marks ,Subject Details)  and Sport class
 two classes (Test and Sport) derive the class Result which 
 display the all details of students. Use the concept of Virtual 
 Base class.*/
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
-class Student{
-    protected:
-    string name,rno;
-    public:
-    //virtual base class
-    
-    virtual void getdata(){
-        cout<<"Enter the name of the student: ";
-        cin>>name;
-        cout<<"Enter the roll number of the student: ";
-        cin>>rno;
 
-    }
-    virtual void display(){
-        cout<<"Name: "<<name<<endl;
-        cout<<"Roll Number: "<<rno<<endl;
-        }
+template <class T>
+class Student {
+protected:
+    string name, rno;
 
-};
-class Test:public Student{
-    protected:
-    int cia,endsem;
-    public:
-    void getdata(){
-        cout<<"Enter the CIA marks of the student: ";
-        cin>>cia;
-        cout<<"Enter the End Semester marks of the student: ";
-        cin>>endsem;
-    }
-    void display(){
-        cout<<"CIA Marks: "<<cia<<endl;
-        cout<<"End Semester Marks: "<<endsem<<endl;
+public:
+    void getStudentDetails() {
+        cout << "Enter the name of the student: ";
+        cin >> name;
+        cout << "Enter the roll number of the student: ";
+        cin >> rno;
     }
 
-
-};
-class Sports:public Student{
-    protected:
-    int cia,endsem;
-    public:
-    void getdata(){
-        //getting data od sports 
-        cout<<"Enter the Sports name of the student: ";
-        cin>>name;
-        cout<<"Enter the Sports marks of the student: ";
-        cin>>endsem;
+    void displayStudentDetails() {
+        cout << "Name: " << name << endl;
+        cout << "Roll Number: " << rno << endl;
     }
-    void display(){
-        cout<<"Sports Name: "<<name<<endl;
-        cout<<"Sports Marks: "<<endsem<<endl;
-    }
-
-
-
 };
 
-int main(){
+template <class T>
+class Test : public Student<T> {
+protected:
+    T cia, endsem;
+
+public:
+    void getTestDetails() {
+        cout << "Enter the CIA marks of the student: ";
+        cin >> cia;
+        cout << "Enter the End Semester marks of the student: ";
+        cin >> endsem;
+    }
+
+    void displayTestDetails() {
+        cout << "CIA Marks: " << cia << endl;
+        cout << "End Semester Marks: " << endsem << endl;
+    }
+};
+
+template <class T>
+class Sports : public Student<T> {
+protected:
+    string sportName;
+    T sportGrade;
+
+public:
+    void getSportsDetails() {
+        cout << "Enter the Sport name of the student: ";
+        cin >> sportName;
+        cout << "Enter the Sport grade of the student: ";
+        cin >> sportGrade;
+    }
+
+    void displaySportsDetails() {
+        cout << "Sport Name: " << sportName << endl;
+        cout << "Sport Grade: " << sportGrade << endl;
+    }
+};
+
+template <class T>
+class Result : public Test<T>, public Sports<T> {
+public:
+    void displayResult() {
+        this->displayStudentDetails();
+        this->displayTestDetails();
+        this->displaySportsDetails();
+    }
+};
+
+int main() {
+    Result<int> studentResult;
     int choice;
-    //creating objects
-    Test t1;
-    Sports s1;
-    //switch case using do while  loop
-    do{
-        cout<<"Enter the choice: "<<endl;
-        cout<<"1. Test"<<endl;
-        cout<<"2. Sports"<<endl;
-        cout<<"3.Display Test Details"<<endl;
-        cout<<"4.Display Sports Details"<<endl;
-        cout<<"5.Exit"<<endl;
-        cin>>choice;
-        switch(choice){
-            case 1:
-            t1.getdata();
+
+    do {
+        cout << "Enter the choice: " << endl;
+        cout << "1. Enter Student Details" << endl;
+        cout << "2. Enter Test Details" << endl;
+        cout << "3. Enter Sports Details" << endl;
+        cout << "4. Display All Details" << endl;
+        cout << "5. Exit" << endl;
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            studentResult.getStudentDetails();
             break;
-            case 2:
-            s1.getdata();
+        case 2:
+            studentResult.getTestDetails();
             break;
-            case 3:
-            t1.display();
+        case 3:
+            studentResult.getSportsDetails();
             break;
-            case 4:
-            s1.display();
+        case 4:
+            studentResult.displayResult();
             break;
-            case 5:
+        case 5:
             exit(0);
-            break;
-            default:
-            cout<<"Invalid choice"<<endl;
+        default:
+            cout << "Invalid choice!" << endl;
         }
-    }while(choice!=5);
-        
-    
+    } while (choice != 5);
+
     return 0;
 }
