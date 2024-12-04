@@ -1,47 +1,61 @@
-/*Write a class template Bubble Sort. Write a program that 
-inputs, sorts and outputs an integer array and a float array */
-#include<iostream>
+#include <iostream>
 using namespace std;
+
 template <typename T>
-void bubblesort(T arr[], int n){
-    for(int i = 0; i < n - 1; i++){
-        for(int j = 0; j < n - i - 1; j++){
-            if(arr[j] > arr[j + 1]){
-                T temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+class BubbleSort {
+    T *arr; // Pointer to array
+    int n;  // Number of elements
+
+public:
+    // Constructor to initialize array and size
+    BubbleSort(T array[], int size) {
+        arr = array;
+        n = size;
+    }
+
+    // Function to perform bubble sort
+    void sort() {
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    T temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
             }
         }
     }
-}
 
-// Function template for displaying array
-template <typename T>
-void display(T arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+    // Function to display the array
+    void display() {
+        for (int i = 0; i < n; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-}
+};
 
 int main() {
     int n;
 
     // Input and processing for integer array
-    cout<< "Enter the number of elements for the integer array: ";
+    cout << "Enter the number of elements for the integer array: ";
     cin >> n;
     int intArr[n];
-    cout<< "Enter the " << n << " elements for the integer array: ";
+    cout << "Enter the " << n << " elements for the integer array: ";
     for (int i = 0; i < n; i++) {
         cin >> intArr[i];
     }
 
-    cout << "Original integer array: ";
-    display(intArr, n);
+    // Create a BubbleSort object for integer array
+    BubbleSort<int> intSorter(intArr, n);
 
-    bubblesort(intArr, n);
+    cout << "Original integer array: ";
+    intSorter.display();
+
+    intSorter.sort();
     cout << "Sorted integer array: ";
-    display(intArr, n);
+    intSorter.display();
 
     // Input and processing for float array
     cout << "Enter the number of elements for the float array: ";
@@ -52,12 +66,15 @@ int main() {
         cin >> floatArr[i];
     }
 
-    cout << "Original float array: ";
-    display(floatArr, n);
+    // Create a BubbleSort object for float array
+    BubbleSort<float> floatSorter(floatArr, n);
 
-    bubblesort(floatArr, n); 
+    cout << "Original float array: ";
+    floatSorter.display();
+
+    floatSorter.sort();
     cout << "Sorted float array: ";
-    display(floatArr, n);
+    floatSorter.display();
 
     return 0;
 }

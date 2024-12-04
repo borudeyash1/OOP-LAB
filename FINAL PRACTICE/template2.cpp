@@ -1,30 +1,43 @@
 #include <iostream>
 using namespace std;
 
-// Function template for selection sort
+// Class template for selection sort
 template <typename T>
-void selectionSort(T arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        int minIndex = i;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] < arr[minIndex]) {
-                minIndex = j;
-            }
-        }
-        T temp = arr[i];
-        arr[i] = arr[minIndex];
-        arr[minIndex] = temp;
-    }
-}
+class SelectionSort {
+    T* arr;     // Pointer to the array
+    int n;      // Size of the array
 
-// Function template for displaying array
-template <typename T>
-void display(T arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+public:
+    // Constructor to initialize the array and its size
+    SelectionSort(T arr[], int n) {
+        this->arr = arr;
+        this->n = n;
     }
-    cout << endl;
-}
+
+    // Method to perform selection sort
+    void sort() {
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i; // Assume the current index is the minimum
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j; // Update the minimum index if a smaller element is found
+                }
+            }
+            // Swap the elements
+            T temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+
+    // Method to display the array
+    void display() {
+        for (int i = 0; i < n; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
 
 int main() {
     int n;
@@ -38,12 +51,13 @@ int main() {
         cin >> intArr[i];
     }
 
+    // Sorting and displaying the integer array
+    SelectionSort<int> intSorter(intArr, n);
     cout << "Original integer array: ";
-    display(intArr, n);
-
-    selectionSort(intArr, n);
+    intSorter.display();
+    intSorter.sort();
     cout << "Sorted integer array: ";
-    display(intArr, n);
+    intSorter.display();
 
     // Input and processing for float array
     cout << "Enter the number of elements for the float array: ";
@@ -54,12 +68,13 @@ int main() {
         cin >> floatArr[i];
     }
 
+    // Sorting and displaying the float array
+    SelectionSort<float> floatSorter(floatArr, n);
     cout << "Original float array: ";
-    display(floatArr, n);
-
-    selectionSort(floatArr, n); 
+    floatSorter.display();
+    floatSorter.sort();
     cout << "Sorted float array: ";
-    display(floatArr, n);
+    floatSorter.display();
 
     return 0;
 }
