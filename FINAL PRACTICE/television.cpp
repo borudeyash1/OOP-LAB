@@ -1,3 +1,13 @@
+/*Create a C++ class named Television that has data members 
+to hold the model number and the screen size in inches, and 
+the price. Member functions include overloaded insertion 
+and extraction operators. If more than four digits are entered 
+for the model, if the screen size is smaller than 12 or greater 
+than 70 inches, or if the price is negative or over $5000 then 
+throw an integer. Write a main() function that instantiates a 
+television object, allows user to enter data and displays the 
+data members .If an exception is caught, replace all the data 
+member values with zero values.*/
 #include <iostream>
 using namespace std;
 
