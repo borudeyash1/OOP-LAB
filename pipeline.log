@@ -1,0 +1,243 @@
+[2026-08-18T02:28:05.746Z] Initializing DevOps pipeline...
+[2026-08-18T02:28:05.752Z] Extracting source archive (filtering node_modules, target, build, .git)...
+[2026-08-18T02:28:05.769Z] ZIP extraction completed.
+[2026-08-18T02:28:05.770Z] Writing environment files (.env) to workspace...
+[2026-08-18T02:28:05.781Z] Detected Tech Stack / Framework: FLASK
+[2026-08-18T02:28:05.782Z] Detected Architecture: MONOLITHIC
+[2026-08-18T02:28:05.848Z] [VALIDATION] Running pre-build static analysis checks...
+[2026-08-18T02:28:05.851Z] [VALIDATION] [SUCCESS] Pre-build validation complete. No configuration warnings found!
+[2026-08-18T02:28:05.857Z] [+] Docker daemon available via named pipe. Using isolated container build.
+[2026-08-18T02:28:05.858Z] Auditing package dependencies for deprecations & stable upgrades...
+[2026-08-18T02:28:07.766Z] [DEPENDENCY-AUDIT] Found 4 recommended stable upgrade(s).
+[2026-08-18T02:28:07.800Z] [DEPENDENCY-AUDIT] Rewriting dependency files with new versions...
+[2026-08-18T02:28:07.802Z]   - Upgraded pip package: Flask ➔ ==3.1.3
+[2026-08-18T02:28:07.803Z]   - Upgraded pip package: psycopg2-binary ➔ ==2.9.12
+[2026-08-18T02:28:07.805Z]   - Upgraded pip package: cryptography ➔ ==50.0.0
+[2026-08-18T02:28:07.809Z]   - Upgraded pip package: python-dotenv ➔ ==1.2.3
+[2026-08-18T02:28:07.810Z] [+] Dependency file rewrites complete.
+[2026-08-18T02:28:07.810Z] Writing 1 environment file(s) to workspace...
+[2026-08-18T02:28:07.811Z] [ENV] Auto-injected CORS whitelist vars for sandbox: CLIENT_URL, FRONTEND_URL, CORS_ORIGIN, ALLOWED_ORIGIN → http://localhost:3006
+[2026-08-18T02:28:07.812Z] [ENV] Written: .env
+[2026-08-18T02:28:07.812Z] [ENV] Smart normalization applied to .env:
+[2026-08-18T02:28:07.813Z]   ↪ [PORT] PORT: 3001 → 3006 (overridden to preview port)
+[2026-08-18T02:28:07.813Z] Running pre-build static analysis for hardcoded credentials...
+[2026-08-18T02:28:07.836Z] [+] No hardcoded credentials detected in source code.
+[2026-08-18T02:28:07.836Z] Starting compilation/build step...
+[2026-08-18T02:28:07.875Z] Using local cached image: python:3.12-slim
+[2026-08-18T02:28:07.876Z] Starting Step: COMPILE/BUILD using container python:3.12-slim...
+[2026-08-18T02:28:43.945Z] [COMPILE/BUILD] TRequirement already satisfied: pip in ./.venv/lib/python3.12/site-packages (25.0.1)
+[2026-08-18T02:28:44.372Z] [COMPILE/BUILD] Collecting pip
+[2026-08-18T02:28:44.411Z] [COMPILE/BUILD] =  Using cached pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)
+[2026-08-18T02:28:44.454Z] [COMPILE/BUILD] 2Using cached pip-26.2.1-py3-none-any.whl (1.8 MB)
+[2026-08-18T02:28:44.498Z] [COMPILE/BUILD] ?Installing collected packages: pip
+[2026-08-18T02:28:44.499Z] [COMPILE/BUILD] Attempting uninstall: pip
+[2026-08-18T02:28:44.518Z] [COMPILE/BUILD] ,    Found existing installation: pip 25.0.1
+[2026-08-18T02:28:51.444Z] [COMPILE/BUILD] Uninstalling pip-25.0.1:
+[2026-08-18T02:28:52.256Z] [COMPILE/BUILD] *      Successfully uninstalled pip-25.0.1
+[2026-08-18T02:29:19.436Z] [COMPILE/BUILD] "Successfully installed pip-26.2.1
+[2026-08-18T02:29:26.201Z] [COMPILE/BUILD] <Collecting Flask==3.1.3 (from -r requirements.txt (line 1))
+[2026-08-18T02:29:26.232Z] [COMPILE/BUILD] >  Using cached flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+[2026-08-18T02:29:26.533Z] [COMPILE/BUILD] GCollecting psycopg2-binary==2.9.12 (from -r requirements.txt (line 2))
+[2026-08-18T02:29:26.835Z] [COMPILE/BUILD] r  Downloading psycopg2_binary-2.9.12-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+[2026-08-18T02:29:27.390Z] [COMPILE/BUILD] DCollecting cryptography==50.0.0 (from -r requirements.txt (line 3))
+[2026-08-18T02:29:27.408Z] [COMPILE/BUILD] Z  Using cached cryptography-50.0.0-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+[2026-08-18T02:29:27.575Z] [COMPILE/BUILD] DCollecting python-dotenv==1.2.3 (from -r requirements.txt (line 4))
+[2026-08-18T02:29:27.591Z] [COMPILE/BUILD] E  Using cached python_dotenv-1.2.3-py3-none-any.whl.metadata (29 kB)
+[2026-08-18T02:29:28.144Z] [COMPILE/BUILD] LCollecting blinker>=1.9.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:29:28.178Z] [COMPILE/BUILD] @  Using cached blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+[2026-08-18T02:29:28.302Z] [COMPILE/BUILD] JCollecting click>=8.1.3 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:29:28.319Z] [COMPILE/BUILD] >  Using cached click-8.4.2-py3-none-any.whl.metadata (2.6 kB)
+[2026-08-18T02:29:28.740Z] [COMPILE/BUILD] QCollecting itsdangerous>=2.2.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:29:28.756Z] [COMPILE/BUILD] E  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+[2026-08-18T02:29:28.880Z] [COMPILE/BUILD] KCollecting jinja2>=3.1.2 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:29:28.896Z] [COMPILE/BUILD] ?  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+[2026-08-18T02:29:29.026Z] [COMPILE/BUILD] OCollecting markupsafe>=2.1.1 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:29:29.041Z] [COMPILE/BUILD] �  Using cached markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+[2026-08-18T02:29:29.492Z] [COMPILE/BUILD] MCollecting werkzeug>=3.1.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:29:29.536Z] [COMPILE/BUILD] A  Using cached werkzeug-3.1.8-py3-none-any.whl.metadata (4.0 kB)
+[2026-08-18T02:29:29.742Z] [COMPILE/BUILD] QCollecting cffi>=2.0.0 (from cryptography==50.0.0->-r requirements.txt (line 3))
+[2026-08-18T02:29:29.757Z] [COMPILE/BUILD] g  Using cached cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+[2026-08-18T02:29:29.905Z] [COMPILE/BUILD] \Collecting pycparser (from cffi>=2.0.0->cryptography==50.0.0->-r requirements.txt (line 3))
+[2026-08-18T02:29:29.938Z] [COMPILE/BUILD] @  Using cached pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+[2026-08-18T02:29:29.974Z] [COMPILE/BUILD] 3Using cached flask-3.1.3-py3-none-any.whl (103 kB)
+[2026-08-18T02:29:30.025Z] [COMPILE/BUILD] gDownloading psycopg2_binary-2.9.12-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+[2026-08-18T02:29:30.911Z] [COMPILE/BUILD] �   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 5.6 MB/s  0:00:00
+[2026-08-18T02:29:30.948Z] [COMPILE/BUILD] OUsing cached cryptography-50.0.0-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+[2026-08-18T02:29:31.000Z] [COMPILE/BUILD] :Using cached python_dotenv-1.2.3-py3-none-any.whl (22 kB)
+[2026-08-18T02:29:31.016Z] [COMPILE/BUILD] 5Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+[2026-08-18T02:29:31.032Z] [COMPILE/BUILD] \Using cached cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+[2026-08-18T02:29:31.050Z] [COMPILE/BUILD] 3Using cached click-8.4.2-py3-none-any.whl (119 kB)
+[2026-08-18T02:29:31.066Z] [COMPILE/BUILD] 9Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+[2026-08-18T02:29:31.081Z] [COMPILE/BUILD] 4Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+[2026-08-18T02:29:31.102Z] [COMPILE/BUILD] wUsing cached markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+[2026-08-18T02:29:31.119Z] [COMPILE/BUILD] 6Using cached werkzeug-3.1.8-py3-none-any.whl (226 kB)
+[2026-08-18T02:29:31.162Z] [COMPILE/BUILD] 4Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+[2026-08-18T02:29:31.400Z] [COMPILE/BUILD] �Installing collected packages: python-dotenv, pycparser, psycopg2-binary, markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, cffi, Flask, cryptography
+[2026-08-18T02:29:49.395Z] [COMPILE/BUILD] �Successfully installed Flask-3.1.3 blinker-1.9.0 cffi-2.1.1 click-8.4.2 cryptography-50.0.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.3 psycopg2-binary-2.9.12 pycparser-3.0 python-dotenv-1.2.3 werkzeug-3.1.8
+[2026-08-18T02:29:49.717Z] Step Completed: COMPILE/BUILD
+[2026-08-18T02:29:49.912Z] Using local cached image: semgrep/semgrep:latest
+[2026-08-18T02:29:49.913Z] Starting Step: SEMGREP-SAST using container semgrep/semgrep:latest...
+[2026-08-18T02:30:08.835Z] [SEMGREP-SAST] �
+[2026-08-18T02:30:08.835Z] [SEMGREP-SAST] ┌─────────────┐
+[2026-08-18T02:30:08.836Z] [SEMGREP-SAST] │ Scan Status │
+[2026-08-18T02:30:08.836Z] [SEMGREP-SAST] └─────────────┘
+[2026-08-18T02:30:08.837Z] [SEMGREP-SAST] 8  Scanning 4 files tracked by git with 1074 Code rules:
+[2026-08-18T02:30:08.840Z] [SEMGREP-SAST] 6
+[2026-08-18T02:30:08.841Z] [SEMGREP-SAST] Language      Rules   Files          Origin      Rules
+[2026-08-18T02:30:08.841Z] [SEMGREP-SAST] ─────────────────────────────        ───────────────────
+[2026-08-18T02:30:08.842Z] [SEMGREP-SAST] <multilang>      47       4          Community    1074
+[2026-08-18T02:30:08.842Z] [SEMGREP-SAST] python          243       1
+[2026-08-18T02:30:10.199Z] [SEMGREP-SAST] �
+[2026-08-18T02:30:10.200Z] [SEMGREP-SAST] ┌──────────────┐
+[2026-08-18T02:30:10.200Z] [SEMGREP-SAST] │ Scan Summary │
+[2026-08-18T02:30:10.201Z] [SEMGREP-SAST] └──────────────┘
+[2026-08-18T02:30:10.201Z] [SEMGREP-SAST] J✅ Scan completed successfully.
+[2026-08-18T02:30:10.202Z] [SEMGREP-SAST] • Findings: 8 (8 blocking)
+[2026-08-18T02:30:10.202Z] [SEMGREP-SAST] • Rules run: 290
+[2026-08-18T02:30:10.202Z] [SEMGREP-SAST] • Targets scanned: 4
+[2026-08-18T02:30:10.202Z] [SEMGREP-SAST] • Parsed lines: ~100.0%
+[2026-08-18T02:30:10.203Z] [SEMGREP-SAST] • Scan skipped:
+[2026-08-18T02:30:10.203Z] [SEMGREP-SAST] ◦ Files matching .semgrepignore patterns: 5
+[2026-08-18T02:30:10.203Z] [SEMGREP-SAST] • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+[2026-08-18T02:30:10.204Z] [SEMGREP-SAST] Ran 290 rules on 4 files: 8 findings.
+[2026-08-18T02:30:12.055Z] Step Completed: SEMGREP-SAST
+[2026-08-18T02:30:12.056Z] [SAST] Semgrep: 8 alert(s) found.
+[2026-08-18T02:30:12.081Z] Using local cached image: ghcr.io/google/osv-scanner:latest
+[2026-08-18T02:30:12.082Z] Starting Step: OSV-SCAN using container ghcr.io/google/osv-scanner:latest...
+[2026-08-18T02:30:12.557Z] [OSV-SCAN] Scanning dir /workspace
+[2026-08-18T02:30:12.558Z] [OSV-SCAN] %Starting filesystem walk for root: /
+[2026-08-18T02:30:13.119Z] [OSV-SCAN] �Neither CPE nor PURL found for package: {BOMRef:bom-ref:pip MIMEType: Type:library Supplier:<nil> Manufacturer:<nil> Author: Authors:<nil> Publisher: Group: Name:pip Version: Description: Scope: Hashes:<nil> Licenses:<nil> Copyright: CPE: PackageURL: OmniborID:<nil> SWHID:<nil> SWID:<nil> Modified:<nil> Pedigree:<nil> ExternalReferences:<nil> Properties:<nil> Components:<nil> Evidence:<nil> ReleaseNotes:<nil> ModelCard:<nil> Data:<nil> CryptoProperties:<nil> Tags:<nil> IsExternal:<nil> PatentAssertions:<nil> VersionRange: Signature:<nil>}
+[2026-08-18T02:30:13.119Z] [OSV-SCAN] Scanned /workspace/.venv/lib/python3.12/site-packages/pip/_vendor/bom.cdx.json file and found 18 packages
+[2026-08-18T02:30:13.526Z] [OSV-SCAN] �Scanned /workspace/.venv/lib/python3.12/site-packages/psycopg2_binary-2.9.12.dist-info/sboms/auditwheel.cdx.json file and found 10 packages
+[2026-08-18T02:30:13.644Z] [OSV-SCAN] �Scanned /workspace/requirements.txt file and found 4 packages
+[2026-08-18T02:30:13.645Z] [OSV-SCAN] End status: 234 dirs visited, 1798 inodes visited, 3 Extract calls, 1.08558425s elapsed, 1.085585201s wall time
+[2026-08-18T02:30:13.729Z] [OSV-SCAN] 6Filtered 9 local/unscannable package/s from the scan.
+[2026-08-18T02:30:19.692Z] [!] OSV completed: Container exited with non-zero: 1
+[2026-08-18T02:30:19.694Z] [OSV] Dependency scan: 2 match(es) found.
+[2026-08-18T02:30:19.720Z] Using local cached image: aquasec/trivy:latest
+[2026-08-18T02:30:19.721Z] Starting Step: TRIVY-SEC-SCAN using container aquasec/trivy:latest...
+[2026-08-18T02:30:20.496Z] [TRIVY-SEC-SCAN] �2026-08-18T02:30:20ZINFO[vulndb] Need to update DB
+[2026-08-18T02:30:20.497Z] [TRIVY-SEC-SCAN] 2026-08-18T02:30:20ZINFO[vulndb] Downloading vulnerability DB...
+[2026-08-18T02:30:20.497Z] [TRIVY-SEC-SCAN] 2026-08-18T02:30:20ZINFO[vulndb] Downloading artifact...repo="mirror.gcr.io/aquasec/trivy-db:2"
+[2026-08-18T02:30:33.440Z] [TRIVY-SEC-SCAN] d207.24 KiB / 108.04 MiB [>___________________________________________________________] 0.19% ? p/s ?d1.03 MiB / 108.04 MiB [>_____________________________________________________________] 0.95% ? p/s ?d3.50 MiB / 108.04 MiB [-->___________________________________________________________] 3.24% ? p/s ?d6.79 MiB / 108.04 MiB [--->_____________________________________________] 6.29% 10.99 MiB p/s ETA 9sd9.94 MiB / 108.04 MiB [---->____________________________________________] 9.20% 10.99 MiB p/s ETA 8sd13.38 MiB / 108.04 MiB [----->_________________________________________] 12.38% 10.99 MiB p/s ETA 8sd16.12 MiB / 108.04 MiB [------->_______________________________________] 14.92% 11.29 MiB p/s ETA 8sd18.87 MiB / 108.04 MiB [-------->______________________________________] 17.47% 11.29 MiB p/s ETA 7sd21.53 MiB / 108.04 MiB [--------->_____________________________________] 19.92% 11.29 MiB p/s ETA 7sd24.12 MiB / 108.04 MiB [---------->____________________________________] 22.33% 11.42 MiB p/s ETA 7sd26.62 MiB / 108.04 MiB [----------->___________________________________] 24.64% 11.42 MiB p/s ETA 7sd29.14 MiB / 108.04 MiB [------------>__________________________________] 26.97% 11.42 MiB p/s ETA 6sd31.79 MiB / 108.04 MiB [------------->_________________________________] 29.43% 11.51 MiB p/s ETA 6sd34.45 MiB / 108.04 MiB [-------------->________________________________] 31.88% 11.51 MiB p/s ETA 6sd37.10 MiB / 108.04 MiB [---------------->______________________________] 34.34% 11.51 MiB p/s ETA 6sd39.79 MiB / 108.04 MiB [----------------->_____________________________] 36.83% 11.62 MiB p/s ETA 5sd42.41 MiB / 108.04 MiB [------------------>____________________________] 39.26% 11.62 MiB p/s ETA 5sd44.91 MiB / 108.04 MiB [------------------->___________________________] 41.57% 11.62 MiB p/s ETA 5sd47.57 MiB / 108.04 MiB [-------------------->__________________________] 44.03% 11.71 MiB p/s ETA 5sd50.19 MiB / 108.04 MiB [--------------------->_________________________] 46.46% 11.71 MiB p/s ETA 4sd53.50 MiB / 108.04 MiB [----------------------->_______________________] 49.52% 11.71 MiB p/s ETA 4sd56.13 MiB / 108.04 MiB [------------------------>______________________] 51.95% 11.88 MiB p/s ETA 4sd58.87 MiB / 108.04 MiB [------------------------->_____________________] 54.49% 11.88 MiB p/s ETA 4sd61.55 MiB / 108.04 MiB [-------------------------->____________________] 56.97% 11.88 MiB p/s ETA 3sd64.24 MiB / 108.04 MiB [--------------------------->___________________] 59.46% 11.98 MiB p/s ETA 3sd66.90 MiB / 108.04 MiB [----------------------------->_________________] 61.92% 11.98 MiB p/s ETA 3sd69.43 MiB / 108.04 MiB [------------------------------>________________] 64.26% 11.98 MiB p/s ETA 3sd71.99 MiB / 108.04 MiB [------------------------------->_______________] 66.63% 12.04 MiB p/s ETA 2sd74.68 MiB / 108.04 MiB [-------------------------------->______________] 69.12% 12.04 MiB p/s ETA 2sd77.14 MiB / 108.04 MiB [--------------------------------->_____________] 71.40% 12.04 MiB p/s ETA 2sd79.89 MiB / 108.04 MiB [---------------------------------->____________] 73.95% 12.11 MiB p/s ETA 2sd82.64 MiB / 108.04 MiB [----------------------------------->___________] 76.49% 12.11 MiB p/s ETA 2sd85.41 MiB / 108.04 MiB [------------------------------------->_________] 79.05% 12.11 MiB p/s ETA 1sd88.06 MiB / 108.04 MiB [-------------------------------------->________] 81.51% 12.21 MiB p/s ETA 1sd90.88 MiB / 108.04 MiB [--------------------------------------->_______] 84.12% 12.21 MiB p/s ETA 1sd93.44 MiB / 108.04 MiB [---------------------------------------->______] 86.49% 12.21 MiB p/s ETA 1sd96.21 MiB / 108.04 MiB [----------------------------------------->_____] 89.05% 12.30 MiB p/s ETA 0sd98.75 MiB / 108.04 MiB [------------------------------------------>____] 91.41% 12.30 MiB p/s ETA 0sd101.94 MiB / 108.04 MiB [------------------------------------------->__] 94.36% 12.30 MiB p/s ETA 0sd104.73 MiB / 108.04 MiB [-------------------------------------------->_] 96.94% 12.42 MiB p/s ETA 0sd107.42 MiB / 108.04 MiB [--------------------------------------------->] 99.43% 12.42 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [-------------------------------------------->] 100.00% 12.42 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [-------------------------------------------->] 100.00% 11.98 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [-------------------------------------------->] 100.00% 11.98 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [-------------------------------------------->] 100.00% 11.98 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [-------------------------------------------->] 100.00% 11.20 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [-------------------------------------------->] 100.00% 11.20 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [-------------------------------------------->] 100.00% 11.20 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [-------------------------------------------->] 100.00% 10.48 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [-------------------------------------------->] 100.00% 10.48 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [-------------------------------------------->] 100.00% 10.48 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [--------------------------------------------->] 100.00% 9.80 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [--------------------------------------------->] 100.00% 9.80 MiB p/s ETA 0sd108.04 MiB / 108.04 MiB [------------------------------------------------] 100.00% 10.21 MiB p/s 11sl2026-08-18T02:30:33ZINFO[vulndb] Artifact successfully downloadedrepo="mirror.gcr.io/aquasec/trivy-db:2"
+[2026-08-18T02:30:33.450Z] [TRIVY-SEC-SCAN] C2026-08-18T02:30:33ZINFO[vuln] Vulnerability scanning is enabled
+[2026-08-18T02:30:33.483Z] [TRIVY-SEC-SCAN] �2026-08-18T02:30:33ZWARN[pip] Unable to find python `site-packages` directory. License detection is skipped.err="unable to find path to Python executable"
+[2026-08-18T02:30:33.491Z] [TRIVY-SEC-SCAN] 2026-08-18T02:30:33ZINFONumber of language-specific filesnum=1
+[2026-08-18T02:30:33.491Z] [TRIVY-SEC-SCAN] 2026-08-18T02:30:33ZINFO[pip] Detecting vulnerabilities...
+[2026-08-18T02:30:33.926Z] Step Completed: TRIVY-SEC-SCAN
+[2026-08-18T02:30:33.927Z] [SECURITY] Trivy: 0 container/library vulnerability findings.
+[2026-08-18T02:30:33.927Z] Packaging build artifact ZIP...
+[2026-08-18T02:30:33.951Z] Artifact ready at DevOps/artifacts/358f445e-ec4e-43d1-8197-4cd842b0940f-artifact.zip
+[2026-08-18T02:30:33.951Z] Build pipeline completed successfully.
+[2026-08-18T02:30:33.952Z] Launching live preview on port 3006...
+[2026-08-18T02:30:34.370Z] [PREVIEW] Spawning live preview in isolated container: devops-preview-358f445e-ec4e-43d1-8197-4cd842b0940f
+[2026-08-18T02:30:34.370Z] [PREVIEW] Image: python:3.12-slim
+[2026-08-18T02:30:34.395Z] [PREVIEW] Using local cached image: python:3.12-slim
+[2026-08-18T02:30:34.430Z] [PREVIEW] Created isolated database network: devops-net-358f445e-ec4e-43d1-8197-4cd842b0940f
+[2026-08-18T02:30:34.433Z] [PREVIEW] Creating new database container: postgres:15-alpine (devops-db-postgres-358f445e-ec4e-43d1-8197-4cd842b0940f)
+[2026-08-18T02:30:34.436Z] [PREVIEW] Pulling image from registry: postgres:15-alpine...
+[2026-08-18T02:30:49.111Z] [PREVIEW] Database container is ready: devops-db-postgres-358f445e-ec4e-43d1-8197-4cd842b0940f
+[2026-08-18T02:30:49.113Z] [DOCKER-ENV-DEBUG] Generated Env: ["PORT=3006","SERVER_PORT=3006","NODE_ENV=production","DB_HOST=devops-db-postgres-358f445e-ec4e-43d1-8197-4cd842b0940f","DB_PORT=5432","DB_DATABASE=preview_db","DB_USERNAME=postgres","DB_PASSWORD=","JWT_SECRET=supersecret","CLIENT_URL=http://localhost:3006","FRONTEND_URL=http://localhost:3006","CORS_ORIGIN=http://localhost:3006","ALLOWED_ORIGIN=http://localhost:3006"]
+[2026-08-18T02:30:49.114Z] Workspace retained for live preview process.
+[2026-08-18T02:30:49.953Z] [HEALTH] Waiting for app on port 3006 (timeout: 10 min)…
+[2026-08-18T02:30:49.963Z] [HEALTH] ⏳ Waiting for app on port 3006… (0s elapsed, attempt #1)
+[2026-08-18T02:30:52.983Z] [HEALTH] ⏳ Waiting for app on port 3006… (3s elapsed, attempt #2)
+[2026-08-18T02:30:55.998Z] [HEALTH] ⏳ Waiting for app on port 3006… (6s elapsed, attempt #3)
+[2026-08-18T02:30:59.009Z] [HEALTH] ⏳ Waiting for app on port 3006… (9s elapsed, attempt #4)
+[2026-08-18T02:31:02.027Z] [HEALTH] ⏳ Waiting for app on port 3006… (12s elapsed, attempt #5)
+[2026-08-18T02:31:05.034Z] [HEALTH] ⏳ Waiting for app on port 3006… (15s elapsed, attempt #6)
+[2026-08-18T02:31:08.040Z] [HEALTH] ⏳ Waiting for app on port 3006… (18s elapsed, attempt #7)
+[2026-08-18T02:31:11.048Z] [HEALTH] ⏳ Waiting for app on port 3006… (21s elapsed, attempt #8)
+[2026-08-18T02:31:14.054Z] [HEALTH] ⏳ Waiting for app on port 3006… (24s elapsed, attempt #9)
+[2026-08-18T02:31:17.060Z] [HEALTH] ⏳ Waiting for app on port 3006… (27s elapsed, attempt #10)
+[2026-08-18T02:31:20.066Z] [HEALTH] ⏳ Waiting for app on port 3006… (30s elapsed, attempt #11)
+[2026-08-18T02:31:23.087Z] [HEALTH] ⏳ Waiting for app on port 3006… (33s elapsed, attempt #12)
+[2026-08-18T02:31:26.103Z] [HEALTH] ⏳ Waiting for app on port 3006… (36s elapsed, attempt #13)
+[2026-08-18T02:31:29.094Z] [APP] TRequirement already satisfied: pip in ./.venv/lib/python3.12/site-packages (25.0.1)
+[2026-08-18T02:31:29.120Z] [HEALTH] ⏳ Waiting for app on port 3006… (39s elapsed, attempt #14)
+[2026-08-18T02:31:29.871Z] [APP] Collecting pip
+[2026-08-18T02:31:30.059Z] [APP] <  Downloading pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)
+[2026-08-18T02:31:30.122Z] [APP] 1Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)
+[2026-08-18T02:31:30.561Z] [APP] �   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 5.7 MB/s eta 0:00:00
+[2026-08-18T02:31:30.618Z] [APP] #Installing collected packages: pip
+[2026-08-18T02:31:30.619Z] [APP] Attempting uninstall: pip
+[2026-08-18T02:31:30.660Z] [APP] ,    Found existing installation: pip 25.0.1
+[2026-08-18T02:31:32.135Z] [HEALTH] ⏳ Waiting for app on port 3006… (42s elapsed, attempt #15)
+[2026-08-18T02:31:35.148Z] [HEALTH] ⏳ Waiting for app on port 3006… (45s elapsed, attempt #16)
+[2026-08-18T02:31:38.157Z] [HEALTH] ⏳ Waiting for app on port 3006… (48s elapsed, attempt #17)
+[2026-08-18T02:31:41.170Z] [HEALTH] ⏳ Waiting for app on port 3006… (51s elapsed, attempt #18)
+[2026-08-18T02:31:42.423Z] [APP] Uninstalling pip-25.0.1:
+[2026-08-18T02:31:43.449Z] [APP] *      Successfully uninstalled pip-25.0.1
+[2026-08-18T02:31:44.176Z] [HEALTH] ⏳ Waiting for app on port 3006… (54s elapsed, attempt #19)
+[2026-08-18T02:31:47.189Z] [HEALTH] ⏳ Waiting for app on port 3006… (57s elapsed, attempt #20)
+[2026-08-18T02:31:50.206Z] [HEALTH] ⏳ Waiting for app on port 3006… (60s elapsed, attempt #21)
+[2026-08-18T02:31:53.218Z] [HEALTH] ⏳ Waiting for app on port 3006… (63s elapsed, attempt #22)
+[2026-08-18T02:31:56.227Z] [HEALTH] ⏳ Waiting for app on port 3006… (66s elapsed, attempt #23)
+[2026-08-18T02:31:59.233Z] [HEALTH] ⏳ Waiting for app on port 3006… (69s elapsed, attempt #24)
+[2026-08-18T02:32:02.242Z] [HEALTH] ⏳ Waiting for app on port 3006… (72s elapsed, attempt #25)
+[2026-08-18T02:32:05.250Z] [HEALTH] ⏳ Waiting for app on port 3006… (75s elapsed, attempt #26)
+[2026-08-18T02:32:08.258Z] [HEALTH] ⏳ Waiting for app on port 3006… (78s elapsed, attempt #27)
+[2026-08-18T02:32:11.271Z] [HEALTH] ⏳ Waiting for app on port 3006… (81s elapsed, attempt #28)
+[2026-08-18T02:32:14.279Z] [HEALTH] ⏳ Waiting for app on port 3006… (84s elapsed, attempt #29)
+[2026-08-18T02:32:14.495Z] [APP] "Successfully installed pip-26.2.1
+[2026-08-18T02:32:17.292Z] [HEALTH] ⏳ Waiting for app on port 3006… (87s elapsed, attempt #30)
+[2026-08-18T02:32:20.301Z] [HEALTH] ⏳ Waiting for app on port 3006… (90s elapsed, attempt #31)
+[2026-08-18T02:32:21.241Z] [APP] <Collecting Flask==3.1.3 (from -r requirements.txt (line 1))
+[2026-08-18T02:32:21.608Z] [APP] =  Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+[2026-08-18T02:32:21.832Z] [APP] GCollecting psycopg2-binary==2.9.12 (from -r requirements.txt (line 2))
+[2026-08-18T02:32:21.956Z] [APP] r  Downloading psycopg2_binary-2.9.12-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+[2026-08-18T02:32:22.297Z] [APP] DCollecting cryptography==50.0.0 (from -r requirements.txt (line 3))
+[2026-08-18T02:32:22.350Z] [APP] Y  Downloading cryptography-50.0.0-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+[2026-08-18T02:32:22.441Z] [APP] DCollecting python-dotenv==1.2.3 (from -r requirements.txt (line 4))
+[2026-08-18T02:32:22.484Z] [APP] D  Downloading python_dotenv-1.2.3-py3-none-any.whl.metadata (29 kB)
+[2026-08-18T02:32:22.622Z] [APP] LCollecting blinker>=1.9.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:32:22.663Z] [APP] ?  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+[2026-08-18T02:32:22.728Z] [APP] JCollecting click>=8.1.3 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:32:22.787Z] [APP] =  Downloading click-8.4.2-py3-none-any.whl.metadata (2.6 kB)
+[2026-08-18T02:32:22.866Z] [APP] QCollecting itsdangerous>=2.2.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:32:22.916Z] [APP] D  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+[2026-08-18T02:32:22.980Z] [APP] KCollecting jinja2>=3.1.2 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:32:23.053Z] [APP] >  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+[2026-08-18T02:32:23.153Z] [APP] OCollecting markupsafe>=2.1.1 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:32:23.194Z] [APP] �  Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+[2026-08-18T02:32:23.267Z] [APP] MCollecting werkzeug>=3.1.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+[2026-08-18T02:32:23.311Z] [HEALTH] ⏳ Waiting for app on port 3006… (93s elapsed, attempt #32)
+[2026-08-18T02:32:23.327Z] [APP] @  Downloading werkzeug-3.1.8-py3-none-any.whl.metadata (4.0 kB)
+[2026-08-18T02:32:23.577Z] [APP] QCollecting cffi>=2.0.0 (from cryptography==50.0.0->-r requirements.txt (line 3))
+[2026-08-18T02:32:23.637Z] [APP] f  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+[2026-08-18T02:32:23.706Z] [APP] \Collecting pycparser (from cffi>=2.0.0->cryptography==50.0.0->-r requirements.txt (line 3))
+[2026-08-18T02:32:23.758Z] [APP] ?  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+[2026-08-18T02:32:23.825Z] [APP] 2Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+[2026-08-18T02:32:23.927Z] [APP] gDownloading psycopg2_binary-2.9.12-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+[2026-08-18T02:32:24.303Z] [APP] �   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 12.1 MB/s  0:00:00
+[2026-08-18T02:32:24.355Z] [APP] NDownloading cryptography-50.0.0-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+[2026-08-18T02:32:24.725Z] [APP] �   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 13.2 MB/s  0:00:00
+[2026-08-18T02:32:24.778Z] [APP] 9Downloading python_dotenv-1.2.3-py3-none-any.whl (22 kB)
+[2026-08-18T02:32:24.826Z] [APP] 4Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+[2026-08-18T02:32:24.900Z] [APP] [Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+[2026-08-18T02:32:24.971Z] [APP] 2Downloading click-8.4.2-py3-none-any.whl (119 kB)
+[2026-08-18T02:32:25.049Z] [APP] 8Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+[2026-08-18T02:32:25.130Z] [APP] 3Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+[2026-08-18T02:32:25.209Z] [APP] vDownloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+[2026-08-18T02:32:25.270Z] [APP] 5Downloading werkzeug-3.1.8-py3-none-any.whl (226 kB)
+[2026-08-18T02:32:25.354Z] [APP] 3Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+[2026-08-18T02:32:25.847Z] [APP] �Installing collected packages: python-dotenv, pycparser, psycopg2-binary, markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, cffi, Flask, cryptography
+[2026-08-18T02:32:26.330Z] [HEALTH] ⏳ Waiting for app on port 3006… (96s elapsed, attempt #33)
+[2026-08-18T02:32:29.340Z] [HEALTH] ⏳ Waiting for app on port 3006… (99s elapsed, attempt #34)
+[2026-08-18T02:32:32.346Z] [HEALTH] ⏳ Waiting for app on port 3006… (102s elapsed, attempt #35)
+[2026-08-18T02:32:35.362Z] [HEALTH] ⏳ Waiting for app on port 3006… (105s elapsed, attempt #36)
+[2026-08-18T02:32:38.375Z] [HEALTH] ⏳ Waiting for app on port 3006… (108s elapsed, attempt #37)
+[2026-08-18T02:32:41.383Z] [HEALTH] ⏳ Waiting for app on port 3006… (111s elapsed, attempt #38)
+[2026-08-18T02:32:44.393Z] [HEALTH] ⏳ Waiting for app on port 3006… (114s elapsed, attempt #39)
+[2026-08-18T02:32:47.126Z] [APP] �Successfully installed Flask-3.1.3 blinker-1.9.0 cffi-2.1.1 click-8.4.2 cryptography-50.0.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.3 psycopg2-binary-2.9.12 pycparser-3.0 python-dotenv-1.2.3 werkzeug-3.1.8
+[2026-08-18T02:32:47.398Z] [HEALTH] ⏳ Waiting for app on port 3006… (117s elapsed, attempt #40)
+[2026-08-18T02:32:49.195Z] [APP] E[DATABASE] Initialization completed successfully.
+[2026-08-18T02:32:49.195Z] [APP] * Debug mode: off
+[2026-08-18T02:32:49.205Z] [APP] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2026-08-18T02:32:49.206Z] [APP] * Running on all addresses (0.0.0.0)
+[2026-08-18T02:32:49.206Z] [APP] * Running on http://127.0.0.1:3006
+[2026-08-18T02:32:49.207Z] [APP] * Running on http://192.168.0.3:3006
+[2026-08-18T02:32:49.207Z] [APP] [33mPress CTRL+C to quit[0m
+[2026-08-18T02:32:50.424Z] [APP] >192.168.0.1 - - [18/Aug/2026 02:32:50] "GET / HTTP/1.1" 200 -
+[2026-08-18T02:32:50.425Z] [HEALTH] ✅ App responded — HTTP 200 in 120471ms (attempt #41)
+[2026-08-18T02:33:46.264Z] [APP] >192.168.0.1 - - [18/Aug/2026 02:33:46] "GET / HTTP/1.1" 200 -
